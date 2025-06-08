@@ -1,0 +1,150 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Biblioteca API REST",
+    "description": "Sistema de gestión de biblioteca con usuarios y libros",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Servidor local de desarrollo"
+    }
+  ],
+"paths": {
+  "/users": {
+    "get": {
+      "summary": "Obtener todos los usuarios",
+      "responses": {
+        "200": {
+          "description": "Lista de usuarios",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "name": { "type": "string" },
+                    "email": { "type": "string", "format": "email" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "post": {
+      "summary": "Crear nuevo usuario",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "email": { "type": "string", "format": "email" }
+              },
+              "required": ["name", "email"]
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Usuario creado"
+        },
+        "400": {
+          "description": "Datos inválidos"
+        }
+      }
+    }
+  },
+  "/users/{id}": {
+    "get": {
+      "summary": "Obtener usuario por ID",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Usuario encontrado"
+        },
+        "404": {
+          "description": "Usuario no encontrado"
+        }
+      }
+    },
+    "put": {
+      "summary": "Actualizar usuario por ID",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "email": { "type": "string", "format": "email" }
+              },
+              "example": {
+                "name": "Carlos Ruiz",
+                "email": "carlos@example.com"
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Usuario actualizado"
+        },
+        "404": {
+          "description": "Usuario no encontrado"
+        }
+      }
+    },
+    "delete": {
+      "summary": "Eliminar usuario por ID",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "Usuario eliminado correctamente"
+        },
+        "404": {
+          "description": "Usuario no encontrado"
+        }
+      }
+    }
+  }
+}
+}

@@ -2,12 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../swagger/swagger.json');
+const swaggerSpec = require('./swagger/swagger.js');
 
 require('dotenv').config();
-
-// Rutas
-const userRoutes = require('./routes/user.routes');
 
 const app = express();
 
@@ -16,10 +13,15 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 
-// Rutas principales
-app.use('/api/users', userRoutes);
+// DocumentaciÃ³n Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Documentación Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// Rutas
+const userRoutes = require('./routes/user.routes');
+const bookRoutes = require('./routes/book.routes');
+const loanRoutes = require('./routes/loan.routes');
 
+app.use('/api', userRoutes);
+app.use('/api', bookRoutes);
+app.use('/api', loanRoutes);
 module.exports = app;

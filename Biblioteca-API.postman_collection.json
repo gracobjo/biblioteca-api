@@ -1,0 +1,355 @@
+{
+  "info": {
+    "name": "Biblioteca API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" 
+  },
+  "item": [
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Crear usuario - Datos válidos",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Carlos Ruiz\",\n  \"email\": \"carlos@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear usuario - Email duplicado",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana López\",\n  \"email\": \"carlos@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener todos los usuarios",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener usuario por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/users/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "users", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar usuario - Datos válidos",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Carlos Ruiz Actualizado\",\n  \"email\": \"carlos.actualizado@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "users", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar usuario",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:3000/api/users/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "users", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Libros",
+      "item": [
+        {
+          "name": "Crear libro - Datos válidos",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Cien años de soledad\",\n  \"author\": \"Gabriel García Márquez\",\n  \"genre\": \"Realismo mágico\",\n  \"published_year\": 1967,\n  \"isbn\": \"9780060883287\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/books",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "books"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear libro - ISBN duplicado",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"El principito\",\n  \"author\": \"Antoine de Saint-Exupéry\",\n  \"isbn\": \"9780060883287\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/books",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "books"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener todos los libros",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/books",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "books"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener libro por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/books/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "books", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar libro - Datos válidos",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"El principito - Edición revisada\",\n  \"author\": \"Antoine de Saint-Exupéry\",\n  \"genre\": \"Fantasía\",\n  \"published_year\": 1943,\n  \"isbn\": \"9783100000001\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/books/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "books", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar libro",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:3000/api/books/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "books", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Préstamos",
+      "item": [
+        {
+          "name": "Crear préstamo - Datos válidos",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"book_id\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/loans",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "loans"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear préstamo - Usuario o libro no existen",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 999,\n  \"book_id\": 999\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/loans",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "loans"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener todos los préstamos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/loans",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "loans"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener préstamo por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/api/loans/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "loans", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Devolver libro (actualizar préstamo)",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "http://localhost:3000/api/loans/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "loans", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar préstamo",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:3000/api/loans/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "loans", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

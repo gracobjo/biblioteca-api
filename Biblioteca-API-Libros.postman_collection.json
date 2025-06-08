@@ -1,0 +1,173 @@
+{
+  "info": {
+    "name": "Biblioteca API - Libros",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" 
+  },
+  "item": [
+    {
+      "name": "Crear libro - Datos válidos",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Cien años de soledad\",\n  \"author\": \"Gabriel García Márquez\",\n  \"genre\": \"Realismo mágico\",\n  \"published_year\": 1967,\n  \"isbn\": \"9780060883287\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/books",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "books"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear libro - ISBN duplicado",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"El principito\",\n  \"author\": \"Antoine de Saint-Exupéry\",\n  \"genre\": \"Fantasía\",\n  \"published_year\": 1943,\n  \"isbn\": \"9780060883287\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/books",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "books"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear libro - Título vacío",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"author\": \"Carlos Ruiz Zafón\",\n  \"isbn\": \"9780307277671\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/books",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "books"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear libro - ISBN inválido",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"La sombra del viento\",\n  \"author\": \"Carlos Ruiz Zafón\",\n  \"isbn\": \"invalido\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/books",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "books"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener todos los libros",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/books",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "books"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener libro por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/books/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "books", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar libro - Datos válidos",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"El principito - Edición actualizada\",\n  \"author\": \"Antoine de Saint-Exupéry\",\n  \"isbn\": \"9783100000001\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/books/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "books", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar libro",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/books/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "books", "1"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
